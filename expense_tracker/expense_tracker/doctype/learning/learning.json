@@ -1,0 +1,70 @@
+{
+ "actions": [],
+ "autoname": "format:J-{###}-DD",
+ "creation": "2023-08-18 16:17:01.756543",
+ "default_view": "List",
+ "description": "guigugiukgb",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "name1",
+  "hbh",
+  "new"
+ ],
+ "fields": [
+  {
+   "columns": 11,
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "name",
+   "max_height": "200ppx",
+   "no_copy": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "hbh",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "hbh",
+   "options": "ToDo"
+  },
+  {
+   "fieldname": "new",
+   "fieldtype": "Data",
+   "label": "new",
+   "reqd": 1
+  }
+ ],
+ "icon": "red",
+ "index_web_pages_for_search": 1,
+ "is_calendar_and_gantt": 1,
+ "links": [],
+ "modified": "2023-09-08 12:03:14.856646",
+ "modified_by": "Administrator",
+ "module": "Expense Tracker",
+ "name": "learning",
+ "naming_rule": "Expression",
+ "nsm_parent_field": "parent_learning",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "read_only": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "name1"
+}

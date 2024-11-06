@@ -11,8 +11,8 @@ export const Dashboard = () => {
   // Get the number card doctype's (Cards) Doc
   const { data: numberCard } = useFrappeGetDoc("Number Card", "Total Credits");
   const { data: totalDebits } = useFrappeGetDoc("Number Card", "Total Debits");
-  console.log("numberCard", numberCard);
-  console.log("totalDebits", totalDebits);
+  //   console.log("numberCard", numberCard);
+  //   console.log("totalDebits", totalDebits);
 
   //video 1:42
   const { data } = useFrappeGetCall(

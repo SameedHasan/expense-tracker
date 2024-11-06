@@ -1,0 +1,23 @@
+{
+  "title": "Accounts",
+  "description": "Form description",
+  "type": "object",
+  "required": [
+    "first_name",
+    "last_name",
+    "billing_company",
+    "role",
+    "employee",
+    "phone_number",
+    "email"
+  ],
+  "properties": {
+    "first_name": { "title": "first_name", "type": "string" },
+    "last_name": { "title": "last_name", "type": "string" },
+    "billing_company": { "title": "billing_company", "type": "string" },
+    "role": { "title": "role", "type": "any" },
+    "employee": { "title": "employee", "type": "string" },
+    "phone_number": { "title": "phone_number", "type": "string" },
+    "email": { "title": "email", "type": "string" }
+  }
+}

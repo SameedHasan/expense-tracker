@@ -1,0 +1,16 @@
+{
+  "title": "ExpenseRecord",
+  "description": "Form description",
+  "type": "object",
+  "required": ["description", "amount", "type", "remarks"],
+  "properties": {
+    "description": { "title": "description", "type": "string" },
+    "amount": { "title": "amount", "type": "number" },
+    "type": { "title": "type", "type": "string", "enum": ["Credit", "Debit"] },
+    "remarks": { "title": "remarks", "type": "string" },
+    "formatted_amount": { "title": "formatted_amount", "type": "number" },
+    "file": { "title": "file", "type": "string" },
+    "abc": { "title": "abc", "type": "string" },
+    "abcd": { "title": "abcd", "type": "string" }
+  }
+}

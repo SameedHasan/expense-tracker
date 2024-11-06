@@ -26,75 +26,50 @@ import {
   useFrappeGetDocList,
   useFrappeDeleteDoc,
   useFrappeGetDoc,
-  useFrappeGetCall,
 } from "frappe-react-sdk";
-import { AddExpenseRecord } from "./AddExpenseRecord";
+
 import { useNavigate } from "react-router-dom";
 import { DeleteIcon, EditIcon, ExternalLinkIcon } from "@chakra-ui/icons";
-import { Search } from "./Search";
+
+import { AddAccountRecord } from "./AddAccountRecord";
 
 interface ExpenseFields {
   name: string;
-  formatted_amount: string;
-  type: string;
-  description: string;
-  remarks: string;
-  owner: string;
-  file: string;
+  idx: string;
+  first_name: string;
+  last_name: string;
+  billing_company: string;
+  role: any;
+  employee: string;
+  phone_number: string;
+  email: string;
 }
-export const ExpenseListTab = () => {
+export const AccountListTab = () => {
   const { deleteDoc } = useFrappeDeleteDoc();
   const navigate = useNavigate();
-
-  const { data, isLoading, error, mutate } = useFrappeGetDocList(
-    "Expense Record",
-    {
-      fields: [
-        "name",
-        "formatted_amount",
-        "type",
-        "description",
-        "remarks",
-        "owner",
-        "file",
-        "abc",
-        "modified_by",
-      ],
-    }
-  );
-
-  const { data: numberCard } = useFrappeGetDoc("DocType", "Expense Record");
-  if (numberCard) {
-    // console.log("Expense Record", numberCard);
-  }
-
-  const { data: numberCard1 } = useFrappeGetDoc("Expense Record", "T-00008");
-  const { data: d3 } = useFrappeGetCall(
-    "frappe.desk.form.load.getdoc?doctype=Expense%20Record&name=T-00008&_=1693832799047",
-    {
-      doc: numberCard1,
-      filters: numberCard1?.filters_json,
-    },
-    numberCard1 ? undefined : null
-  );
-  if (numberCard1) {
-    // console.log("Expense Record Form", d3);
-  }
-
-  if (data) {
-    // console.log("list of doc", data);
-  }
-
-  // Report data getting
-  const { data: d4 } = useFrappeGetCall("frappe.desk.reportview.get", {
-    doctype: "Expense Record",
-    // fields: "description",
-    filters: { name: "T-00008" },
-    fields: JSON.stringify(["name", "description"]),
-    view: "Report",
+  // Account list fetching
+  const { data, isLoading, error, mutate } = useFrappeGetDocList("Accounts", {
+    fields: [
+      "name",
+      "idx",
+      "first_name",
+      "last_name",
+      "billing_company",
+      "role",
+      "employee",
+      "phone_number",
+      "email",
+    ],
   });
-  if (d4) {
-    // console.log("Expense Record Report", d4);
+  if (data) {
+    console.log("list of doc", data);
+  }
+
+  //   Single account doc fetched  by id
+  const { data: doc1 } = useFrappeGetDoc("Accounts", "012");
+
+  if (doc1) {
+    console.log(" doc", doc1);
   }
 
   //   Chakra UI Dialog box / modal
@@ -112,11 +87,8 @@ export const ExpenseListTab = () => {
     <Stack>
       <HStack justify={"space-between"}>
         <Heading as="h3" fontSize={"xl"}>
-          My Expenses
+          My Accounts
         </Heading>
-        <Box>
-          <Search />
-        </Box>
         <Box>
           <Button colorScheme="teal" onClick={onOpen}>
             Add
@@ -144,33 +116,27 @@ export const ExpenseListTab = () => {
           <Thead>
             <Tr>
               <Th>ID</Th>
-              <Th>Description</Th>
-              <Th>Amount</Th>
-              <Th>Type</Th>
-              <Th>Remarks</Th>
-              <Th>Owner</Th>
-              <Th>File</Th>
-              <Th>Action</Th>
+              <Th>First Name</Th>
+              <Th>Last Name</Th>
+              <Th>Billing Company</Th>
+              <Th>Role</Th>
+              <Th>Employee</Th>
+              <Th>Phone Number</Th>
+              <Th>Email</Th>
             </Tr>
           </Thead>
           <Tbody>
             {data.map((d: ExpenseFields) => (
               <Tr key={d.name}>
                 <Td>{d.name}</Td>
-                <Td>{d.description}</Td>
-                <Td color={d.type === "Credit" ? "green" : "red"}>
-                  {d.formatted_amount}
-                </Td>
-                <Td>{d.type}</Td>
-                <Td>{d.remarks}</Td>
-                <Td>{d.owner}</Td>
-                <Td>
-                  {d.file && (
-                    <Link isExternal href={d.file}>
-                      Download
-                    </Link>
-                  )}
-                </Td>
+                <Td>{d.first_name}</Td>
+                <Td>{d.last_name}</Td>
+                <Td>{d.billing_company}</Td>
+                <Td>{d.role}</Td>
+                <Td>{d.employee}</Td>
+                <Td>{d.phone_number}</Td>
+                <Td>{d.email}</Td>
+
                 <Td>
                   <ButtonGroup gap="1">
                     <IconButton
@@ -179,8 +145,9 @@ export const ExpenseListTab = () => {
                       icon={<EditIcon />}
                       onClick={() => {
                         // console.log("d", d);
-                        navigate(`/expenses/${d.name}`);
+                        navigate(`/expenses/${d.first_name}`);
                       }}
+                      aria-label={""}
                     />
                     <Link
                       href={`http://localhost:8000/app/print/Expense Record/${d.name}`}
@@ -190,7 +157,7 @@ export const ExpenseListTab = () => {
                         variant="ghost"
                         colorScheme="teal"
                         icon={<ExternalLinkIcon />}
-                        // onClick={() => {
+                        aria-label={""} // onClick={() => {
                         //   navigate(`/expenses/${d.name}`);
                         // }}
                       />
@@ -207,6 +174,7 @@ export const ExpenseListTab = () => {
                           }) // Message will be "ok"
                           .catch((error) => console.error(error));
                       }}
+                      aria-label={""}
                     />
                   </ButtonGroup>
                 </Td>
@@ -215,7 +183,7 @@ export const ExpenseListTab = () => {
           </Tbody>
         </Table>
       )}
-      <AddExpenseRecord isOpen={isOpen} onClose={onClose} />
+      <AddAccountRecord isOpen={isOpen} onClose={onClose} />
     </Stack>
   );
 };

@@ -12,7 +12,9 @@
   "type",
   "remarks",
   "formatted_amount",
-  "file"
+  "file",
+  "abc",
+  "abcd"
  ],
  "fields": [
   {
@@ -48,18 +50,29 @@
   {
    "fieldname": "formatted_amount",
    "fieldtype": "Float",
-   "label": "Formatted Amount",
-   "read_only": 1
+   "in_list_view": 1,
+   "label": "Formatted Amount"
   },
   {
    "fieldname": "file",
    "fieldtype": "Attach",
    "label": "Invoice File"
+  },
+  {
+   "fieldname": "abc",
+   "fieldtype": "Link",
+   "label": "abc",
+   "options": "User"
+  },
+  {
+   "fieldname": "abcd",
+   "fieldtype": "Data",
+   "label": "abcd"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-08-16 16:13:37.545942",
+ "modified": "2023-09-08 16:47:23.342581",
  "modified_by": "Administrator",
  "module": "Expense Tracker",
  "name": "Expense Record",
@@ -71,6 +84,7 @@
    "delete": 1,
    "email": 1,
    "export": 1,
+   "if_owner": 1,
    "print": 1,
    "read": 1,
    "report": 1,
@@ -82,6 +96,5 @@
  "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": [],
- "track_changes": 1
+ "states": []
 }

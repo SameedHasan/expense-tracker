@@ -1,0 +1,10 @@
+{
+  "title": "Roles",
+  "description": "Form description",
+  "type": "object",
+  "required": ["title", "id"],
+  "properties": {
+    "title": { "title": "title", "type": "string" },
+    "id": { "title": "id", "type": "string" }
+  }
+}

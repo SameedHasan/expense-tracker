@@ -1,0 +1,2 @@
+
+{'title': 'Employees', 'description': 'Form description', 'type': 'object', 'required': ['full_name', 'designation', 'salary'], 'properties': {'full_name': {'title': 'full_name', 'type': 'string'}, 'designation': {'title': 'designation', 'type': 'string'}, 'salary': {'title': 'salary', 'type': 'number'}}}

@@ -1,0 +1,29 @@
+{
+ "attach_print": 0,
+ "channel": "Email",
+ "creation": "2023-08-29 12:22:04.146685",
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "learning",
+ "enabled": 1,
+ "event": "Value Change",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "Add your message here\n{{doc}} hello\n",
+ "modified": "2023-08-29 12:32:45.257992",
+ "modified_by": "Administrator",
+ "module": "Expense Tracker",
+ "name": "learning",
+ "owner": "Administrator",
+ "recipients": [
+  {
+   "receiver_by_document_field": "owner",
+   "receiver_by_role": "Administrator"
+  }
+ ],
+ "send_system_notification": 1,
+ "send_to_all_assignees": 1,
+ "subject": "learning notification",
+ "value_changed": "name1"
+}

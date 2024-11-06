@@ -1,9 +1,8 @@
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@chakra-ui/react";
 import { ExpenseListTab } from "../components/ExpenseListTab.tsx";
 import { Dashboard } from "../components/Dashboard.tsx";
-import { AccountListTab } from "../components/AccountListTab.tsx";
 
-export const ExpensesPage = () => {
+export const AccountsPage = () => {
   return (
     <Tabs>
       <TabList>
@@ -20,7 +19,7 @@ export const ExpensesPage = () => {
           <Dashboard />
         </TabPanel>
         <TabPanel>
-          <AccountListTab />
+          <Dashboard />
         </TabPanel>
       </TabPanels>
     </Tabs>
